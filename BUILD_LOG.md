@@ -4,5 +4,8 @@
  - Data files should not be stored in github
  - clear the data files from Git index 'git rm -r --cached data/'
  - gitignored the data files
- - imported data from kagglehub
-    - ran into python issues with versions and .venv
+ - imported data from kagglehub (so other people can load easily,not just copy/paste)
+    - ran into python issues with kagglehub versions and .venv
+    - Created own virtual environment (./virtual)
+    - I added the virtual environment in .gitignore
+- Data was able to load into the data file (data/raw)
