@@ -9,3 +9,7 @@
     - Created own virtual environment (./virtual)
     - I added the virtual environment in .gitignore
 - Data was able to load into the data file (data/raw)
+
+- Generated new orders:
+    - custom IDs(but unique, used date and time of order creation)
+    - 
