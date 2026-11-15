@@ -7,8 +7,8 @@ A Python-based project that generates order data files for three consecutive day
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/michx02/cartwheel-data
+cd cartwheel-data
 ```
 
 ### 2. Create a Virtual Environment
