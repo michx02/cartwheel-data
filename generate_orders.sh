@@ -7,6 +7,13 @@ else
     thedate=$(date +%m/%d/%Y)
 fi
 
+#the folder to store the orders
+folder="data/raw/orders"
+
+if [ ! -d "$folder" ]; then
+    mkdir "$folder"
+fi
+
 for i in {1..3}; do
     echo "Generating orders for $thedate..."
     python3 src/generate_orders.py "$thedate"
