@@ -44,21 +44,19 @@ def generate_orders(some_date):
     sample = df.sample(n=sample_num, random_state=seed_val,replace= False)
 
     #create new ORDER_id by adding date and time
-    sample['order_id'] += '+' + f"{some_date}T{datetime.now().strftime('%H:%M:%S')}"
+    sample['order_id'] += '+' + f"{some_date}"
 
     #create a new customer 1/10 chance
     sample['customer_id'] = sample['customer_id'].apply(
-    lambda x: x + f"+{some_date}T{datetime.now().strftime('%H:%M:%S')}"
+    lambda x: x + f"+{some_date}"
     if random.randint(0, 9) == 0
     else x
     )
 
     sample = change_order_dates(sample,some_date)
 
-
-    sample.to_csv(path_or_buf=f'data/raw/orders/{some_date}.csv', 
-                  mode='a' if os.path.exists(f'data/raw/orders/{some_date}.csv') else 'w',
-                   header=not os.path.exists(f'data/raw/orders/{some_date}.csv'), index= False)  
+    if not os.path.exists(f'data/raw/orders/{some_date}.csv'):
+        sample.to_csv(path_or_buf=f'data/raw/orders/{some_date}.csv', index= False)  
 
                    
 
