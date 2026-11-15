@@ -7,6 +7,8 @@ else
     thedate=$(date +%m/%d/%Y)
 fi
 
-
-#generate orders by date
-python3 src/generate_orders.py $thedate
+for i in {1..3}; do
+    echo "Generating orders for $thedate..."
+    python3 src/generate_orders.py "$thedate"
+    thedate=$(date -j -v-1d -f "%m/%d/%Y" "$thedate" +%m/%d/%Y)
+done
