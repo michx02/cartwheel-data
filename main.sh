@@ -1,6 +1,11 @@
 #!/bin/bash
 
-thedate=$1
+#assign current date if no date provided
+if [ $# -ne 0 ]; then
+    thedate=$1
+else
+    thedate=$(date +%m/%d/%Y)
+fi
 
 
 #run main.py to set up the project
