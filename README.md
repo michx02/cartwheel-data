@@ -1,12 +1,14 @@
-The data source is from Kaggle : https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+# Order Data Generator
+
+A Python-based project that generates order data files for three consecutive days using a single Bash command.
 
 ## Getting Started
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/michx02/cartwheel-data
-cd cartwheel-data
+git clone <repository-url>
+cd <repository-folder>
 ```
 
 ### 2. Create a Virtual Environment
@@ -20,13 +22,11 @@ python3.15 -m venv .venv
 Activate the virtual environment:
 
 **macOS / Linux**
-
 ```bash
 source .venv/bin/activate
 ```
 
 **Windows (PowerShell)**
-
 ```powershell
 .venv\Scripts\Activate.ps1
 ```
@@ -37,7 +37,17 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Grant Execution Permissions
+### 4. Download the Olist Dataset
+
+Run the main Python program:
+
+```bash
+python3 main.py
+```
+
+This initializes the project by downloading the Olist dataset using KaggleHub.
+
+### 5. Grant Execution Permissions
 
 On macOS/Linux, make the Bash script executable:
 
@@ -45,23 +55,23 @@ On macOS/Linux, make the Bash script executable:
 chmod +x generate_orders.sh
 ```
 
-### 5. Generate Order Data
+### 6. Generate Order Data
 
-Run the following command:
+Run:
 
 ```bash
 ./generate_orders.sh
 ```
 
-This generates three order data files for three consecutive days, starting from the current date.
+This generates three order data files for three consecutive days, working backwards from the specified date.
 
-To specify a different starting date, pass a date argument in `M/D/Y` format:
+By default, the script uses the current date.
+
+To specify a custom starting date, provide an argument in `M/D/Y` format:
 
 ```bash
 ./generate_orders.sh 11/15/2026
 ```
-
-If no date is provided, the script defaults to the current date.
 
 ## Requirements
 
