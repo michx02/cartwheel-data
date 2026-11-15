@@ -5,8 +5,8 @@ The data source is from Kaggle : https://www.kaggle.com/datasets/olistbr/brazili
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/michx02/cartwheel-data
+cd cartwheel-data
 ```
 
 ### 2. Create a Virtual Environment
