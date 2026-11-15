@@ -1,7 +1,8 @@
 import pandas as pd
-from datetime import date, datetime, timedelta
+from datetime import date, datetime
 import random
 import os
+import sys #for bash; provides args
 
 def change_order_dates(sample,some_date):
 
@@ -31,7 +32,8 @@ def change_order_dates(sample,some_date):
 
 
 
-def generate_orders(some_date = date.today()):
+def generate_orders(some_date):
+    some_date = datetime.strptime(some_date,"%m/%d/%Y").date()
     df = pd.read_csv("data/raw/olist/olist_orders_dataset.csv")
 
     #setting seed value
@@ -39,7 +41,7 @@ def generate_orders(some_date = date.today()):
     random.seed(seed_val)
 
     sample_num = random.randint(50,200)
-    sample = df.sample(n=sample_num, random_state=24,replace= False)
+    sample = df.sample(n=sample_num, random_state=seed_val,replace= False)
 
     #create new ORDER_id by adding date and time
     sample['order_id'] += '+' + f"{some_date}T{datetime.now().strftime('%H:%M:%S')}"
@@ -60,5 +62,7 @@ def generate_orders(some_date = date.today()):
 
                    
 
-generate_orders()
+if __name__ == "__main__":
+    generate_orders(sys.argv[1])
+
 

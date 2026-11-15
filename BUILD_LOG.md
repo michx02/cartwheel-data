@@ -12,4 +12,5 @@
 
 - Generated new orders:
     - custom IDs(but unique, used date and time of order creation)
-    - 
+
+-Used bash for:
